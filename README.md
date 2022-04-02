@@ -8,6 +8,8 @@ BigMarket is a startup company that helps businesses optimize their marketing ef
 
 For this project, PySpark was used to perform the ETL process. That is, to extract the dataset, transform the data, connect to an AWS RDS instance, and load the transformed data into pgAdmin. Additionally, PySpark was used to determine if there was any bias toward favorable reviews from Vine members in the dataset. 
 
+![5star](Images/5star.png)
+
 ## Results
 
 ### Dataset and Files
@@ -15,98 +17,72 @@ For this project, PySpark was used to perform the ETL process. That is, to extra
 The analysis is based on the following: 
 
 * Dataset - Product Category: Beauty "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Beauty_v1_00.tsv.gz"
-
-Product Category: Beauty
-Dataset url = "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Beauty_v1_00.tsv.gz"
-
--------------  TO BE CONTINUED --------------
-The analysis is available here: [SurfsUp_Challenge](SurfsUp_Challenge.ipynb)
-
-The additional queries are available here: [Additional_queries](Additional_queries.ipynb)
+* ETL on Amazon Product Reviews: [Amazon_Reviews_ETL](Amazon_Reviews_ETL.ipynb)
+* Vine Reviews: [Vine_Review_Analysis](Vine_Review_Analysis.ipynb)
 
 ### Software and Application
 
 The software and web-based application used for this analysis are:
 
-* Python Version 3.7.11 (using PythonData environment and Pandas Library)
-* Jupyter Notebook Version 6.4.6
-* SQLAlchemy Version 1.4.31
-* SQLite Version 3.37
+* Colaboratory, or Colab - a Google Research product
+* Pyspark - Spark and Python for Big Data  
+* Amazon Web Services, or AWS - RDS and S3
+* pgAdmin 4 - Version 6.1
 
 ### Outcomes 
 
-![Hawaii_surfwave](Images/Hawaii_surfwave.png)
+**Using bulleted lists and images of DataFrames as support, address the following questions:
 
-The data summary below provides solid statistical analysis—such as the mean, standard deviation, minimum, maximum, and percentiles for temperatures in June and December, respectively. The count is the number of times temperature was observed.
+**How many Vine reviews and non-Vine reviews were there?
+How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?**
+
+An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals.
+
+Here are 3 questions with its respective answers /points/takeaways worth highlighting from Amazon's Beauty product reviews:
+
+* How many Vine reviews and non-Vine reviews were there?
+
+There were 647 reviews from members of the paid Amazon Vine program and 74,113 reviews from non-paid individuals. Below is a snapshot of the dataframes displaying the top 20 rows.
 
 <p float="left">
-  <img src="Images/TempsJune_Summary_Statistics.png" width="150" height="270" />
-  <img src="Images/TempsDecember_Summary_Statistics.png" width="170" height="270" /> 
+  <img src="Images/Paid_Vine.png" width="150" height="270" />
+  <img src="Images/not_paid_vine.png" width="170" height="270" /> 
 </p>
 
-Here are 3 points worth noting from the above temperature summary statistics:
+<p float="left">
+  <img src="Images/count_paid_vine.png" width="150" height="270" />
+  <img src="Images/count_notpaid_vine.png" width="170" height="270" /> 
+</p>
 
-* An initial data exploration on weather dataset was done to filter the months of June and December from all the years of data available in the SQLite database. As data was retrieved, it was found that the total number of times temperature was observed for June was 1,700 and for December was 1,517. Note the last row of data available in the SQLite database is August 23, 2017, hence the count difference of 183 in the summary statistics between June and December.
+Please note, these numbers were calculated after filtering all the rows where the votes were equal to or greater than 20 total votes. Then, retrieving all the rows where the number of helpful votes divided by total votes were equal to or greater than 50%. Finally, displaying only the rows where a review was written as part of the Vine program (paid), vine == 'Y' and rows where the review was not part of the Vine program (unpaid), vine == 'N', respectively.
 
-To obtain specific temperature data, the **extract function** along with the **query method** was used for the month of June as follows:
+* How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
 
-```
-June = []
-June = session.query(Measurement.tobs).filter(extract('month', Measurement.date)==6).all()
-```
+There were 229 5-stars reviews from members of the paid Amazon Vine program and 43,217 5-stars reviews from non-paid individuals. Below is a snapshot of the dataframes displaying the top 20 rows.
 
-And for the month of December as follows:
+<p float="left">
+  <img src="Images/paid_5star.png" width="150" height="270" />
+  <img src="Images/nonpaid_5star.png" width="170" height="270" /> 
+</p>
 
-```
-December = []
-December = session.query(Measurement.tobs).filter(extract('month', Measurement.date)==12).all()
-```
+* What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
 
-* Moreover, the mean or average temperature for June is 75 degrees Fahrenheit and 71 degrees Fahrenheit for December; rounded up to the nearest integer.  This displays temperatures during the Summer and Winter seasons are not far off from each other and are consistent every year.
+As shown below, 35.39% of Vine reviews were 5 stars and 58.31% of non-Vine reviews were 5 stars. This shows there are a lot more beauty product reviews coming in from non-paid individuals that Amazon receives versus the paid vine members. This perhaps could be due to the fact that Amazon Vine is an invitation-only program. This means customers who consistently write helpful reviews and develop a reputation for expertise in specific product categories are most likely to be invited into the program. 
 
-* Lastly, it is observed that 75% of the time the temperature for June and December sets at 77 degrees Fahrenheit and 74 degrees Fahrenheit, respectively. This allows to have confidence that Surf n’ Shake can be open for business throughout the year.
+![percentages](Images/percentages.png)
       
 ## Summary
 
-To offer more certainty on the provided weather data, additional queries were run to retrieve the average precipitation for June and December along with rain classifications grouped by year. 
+As mentioned in the results, 35.39% of Vine reviews were 5 stars. Even though these reviews are written by members of the paid Amazon Vine program, it is not led to believe that there is a positivity bias for reviews of the beauty products in the Vine program. This is mainly due to the conservative percentage of the 5-star reviews found in this analysis and most likely because it’s an invitation-only program. Which means, a selective group of people are encouraged to submit their reviews for beauty products at Amazon.
 
->“Rain is classified as light, meaning rain falling at a rate between a trace and 0.10 inch per hour; moderate, 0.11 to 0.30 inch per hour; heavy, more than 0.30 inch per hour.”
+With that stated, an additional analysis using the data from the *verified purchase* column could be used to further analyze the quality of these reviews. The data can be further filtered to consider reviews from the vine program, that have more than 20 total votes and that a purchase has been verified. It is found that an "Amazon Verified Purchase" review means Amazon has verified that the person writing the review purchased the product at Amazon and didn't receive the product at a deep discount. This can further confirm the reviews are unbiased. 
 
->Skilling, Tom. “Ask Tom: Are there definitions for downpour, drizzle or light, steady, heavy rain?” The Chicago Tribune. 28 September 2018,      www.chicagotribune.com/weather/ct-wea-asktom-0929-20180928-column.html/. Accessed 13 February 2022.
+In conclusion, a data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals. PySpark was used to perform the ETL process. That is, to extract the dataset, transform the data, connect to an AWS RDS instance, and load the transformed data into pgAdmin. Additionally, PySpark was used to determine if there was any bias toward favorable reviews from Vine members in the dataset. 
 
-<p float="left">
-  <img src="Images/June_precipitation_rainrange.png" width="340" height="340" />
-  <img src="Images/December_precipitation_rainrange.png" width="340" height="340" /> 
-</p>
+![online_review](Images/online_review.png)
 
-As shown above, the average precipitation for June and December were both mainly classified as moderate rain despite the year 2010 where it was classified as heavy rain for the month of December.
-
-Furthermore, a line graph was created to visualize the same data in chronological order. Along the x-axis are the years from our dataset, and the y-axis is the average amount of precipitation. One trend we can observe based on this plot is that some years have higher amounts of precipitation than others. In 2011, 0.22 inches of rain fall per hour was recorded as the highest year for the month of June. By the same token, 0.44 inches of rain fall per hour was recorded as the highest year for the month of December in 2010.
-
-<p float="left">
-  <img src="Images/June_precipitation_graphsummary.png " width="400" height="380" />
-  <img src="Images/December_precipitation_graphsummary.png" width="400" height="380" /> 
-</p>
-
-
-
-To generate this graph the following code was used on its respective month data:
-
-```
-import matplotlib.pyplot as plt
-
-rain_summary_df.plot()
-plt.title("Average June Precipitation by Year")
-plt.xlabel('Year')
-plt.ylabel('Precipitation')
-plt.tight_layout()
-plt.savefig("Images/June_precipitation_graphsummary.png")
-```
-
-
-In conclusion, an exploratory analysis on weather data was completed to generate a summary statistics for temperatures in June and December. Using Python and SQLAlchemy, additional queries were run to retrieve precipitation data on both June and December months. The precipitation data was then represented in a line chart to further instill confidence in W. Avy to invest in Surf n’ Shake with an eye toward future expansion. Given all the data reflected above, weather should not be a major concern with respect to investing in Surf n’ Shake. Surf's up!
-
-![Hawaii_Mountains](Images/Hawaii_Mountains.png)
+![Guest-Review](Images/Guest-Review.jpg)
 
 
 
