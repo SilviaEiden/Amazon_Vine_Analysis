@@ -8,7 +8,9 @@ BigMarket is a startup company that helps businesses optimize their marketing ef
 
 For this project, PySpark was used to perform the ETL process. That is, to extract the dataset, transform the data, connect to an AWS RDS instance, and load the transformed data into pgAdmin. Additionally, PySpark was used to determine if there was any bias toward favorable reviews from Vine members in the dataset. 
 
-![5star](Images/5star.png)
+<p float="left">
+  <img src="Images/5star.png" width="600" height="350" />
+</p>
 
 ## Results
 
@@ -31,42 +33,34 @@ The software and web-based application used for this analysis are:
 
 ### Outcomes 
 
-**Using bulleted lists and images of DataFrames as support, address the following questions:
-
-**How many Vine reviews and non-Vine reviews were there?
-How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
-What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?**
-
 An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals.
 
-Here are 3 questions with its respective answers /points/takeaways worth highlighting from Amazon's Beauty product reviews:
+Here are 3 questions with its respective answers worth highlighting from Amazon's Beauty product reviews:
 
-* How many Vine reviews and non-Vine reviews were there?
+* **How many Vine reviews and non-Vine reviews were there?**
 
 There were 647 reviews from members of the paid Amazon Vine program and 74,113 reviews from non-paid individuals. Below is a snapshot of the dataframes displaying the top 20 rows.
 
 <p float="left">
-  <img src="Images/Paid_Vine.png" width="150" height="270" />
-  <img src="Images/not_paid_vine.png" width="170" height="270" /> 
+  <img src="Images/Paid_Vine.png" width="500" height="400" />
+  <img src="Images/not_paid_vine.png" width="500" height="400" /> 
 </p>
 
-<p float="left">
-  <img src="Images/count_paid_vine.png" width="150" height="270" />
-  <img src="Images/count_notpaid_vine.png" width="170" height="270" /> 
-</p>
+![count_paid_vine](Images/count_paid_vine.png)
+![count_notpaid_vine](Images/count_notpaid_vine.png)
 
 Please note, these numbers were calculated after filtering all the rows where the votes were equal to or greater than 20 total votes. Then, retrieving all the rows where the number of helpful votes divided by total votes were equal to or greater than 50%. Finally, displaying only the rows where a review was written as part of the Vine program (paid), vine == 'Y' and rows where the review was not part of the Vine program (unpaid), vine == 'N', respectively.
 
-* How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?
+* **How many Vine reviews were 5 stars? How many non-Vine reviews were 5 stars?**
 
 There were 229 5-stars reviews from members of the paid Amazon Vine program and 43,217 5-stars reviews from non-paid individuals. Below is a snapshot of the dataframes displaying the top 20 rows.
 
 <p float="left">
-  <img src="Images/paid_5star.png" width="150" height="270" />
-  <img src="Images/nonpaid_5star.png" width="170" height="270" /> 
+  <img src="Images/paid_5star.png" width="500" height="450" />
+  <img src="Images/nonpaid_5star.png" width="500" height="450" /> 
 </p>
 
-* What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?
+* **What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?**
 
 As shown below, 35.39% of Vine reviews were 5 stars and 58.31% of non-Vine reviews were 5 stars. This shows there are a lot more beauty product reviews coming in from non-paid individuals that Amazon receives versus the paid vine members. This perhaps could be due to the fact that Amazon Vine is an invitation-only program. This means customers who consistently write helpful reviews and develop a reputation for expertise in specific product categories are most likely to be invited into the program. 
 
@@ -80,9 +74,10 @@ With that stated, an additional analysis using the data from the *verified purch
 
 In conclusion, a data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals. PySpark was used to perform the ETL process. That is, to extract the dataset, transform the data, connect to an AWS RDS instance, and load the transformed data into pgAdmin. Additionally, PySpark was used to determine if there was any bias toward favorable reviews from Vine members in the dataset. 
 
-![online_review](Images/online_review.png)
-
-![Guest-Review](Images/Guest-Review.jpg)
+<p float="left">
+  <img src="Images/online_review.png" width="500" height="300" />
+  <img src="Images/Guest-Review.jpg" width="500" height="300" />
+</p>
 
 
 
