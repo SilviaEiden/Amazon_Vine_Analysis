@@ -33,7 +33,7 @@ The software and web-based application used for this analysis are:
 
 ### Outcomes 
 
-An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals. Furthermore, the criteria and data used from the dataset for this analysis is the review id, star ratings, helpful votes, total votes, vine membership, and verified purchase, which evaluates the authenticity of these beauty product reviews. Customer Reviews help customers to learn more about the product and decide whether it is the right product for them. The customer whether it is a vine member or not has a review id that can rate the product from least favorable review 1-star to the most favorable review 5-star. Moreover, these reviews are posted online that can help other customers with their purchasing decision-making.  
+An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals. Furthermore, the criteria and data used from the dataset for this analysis is the review ID, star ratings, helpful votes, total votes, vine membership, and verified purchase, which evaluates the authenticity of these beauty product reviews. Customer Reviews help customers to learn more about the product and decide whether it is the right product for them. The customer, whether it is a vine member or not, has a review ID that can rate the product from least favorable review 1-star to the most favorable review 5-stars. Moreover, these reviews are posted online that can help other customers with their purchasing decision-making.  
 
 Here are 3 questions with its respective answers worth highlighting from Amazon's Beauty product reviews:
 
@@ -66,7 +66,7 @@ There were 229 5-stars reviews from members of the paid Amazon Vine program and 
 
 * **What percentage of Vine reviews were 5 stars? What percentage of non-Vine reviews were 5 stars?**
 
-As shown below, 35.39% of Vine reviews were 5 stars and 58.31% of non-Vine reviews were 5 stars. This shows there are a lot more beauty product reviews coming in from non-paid individuals that Amazon receives versus the paid vine members. This perhaps could be due to the fact that Amazon Vine is an invitation-only program. This means customers who consistently write helpful reviews and develop a reputation for expertise in specific product categories are most likely to be invited into the program. 
+As shown below, 35.39% of Vine reviews were 5-stars and 58.31% of non-Vine reviews were 5-stars. This shows there are a lot more beauty product reviews coming in from non-paid individuals that Amazon receives versus the paid vine members. This perhaps could be due to the fact that Amazon Vine is an invitation-only program. This means customers who consistently write helpful reviews and develop a reputation for expertise in specific product categories are most likely to be invited into the program. 
 
 ![percentages](Images/percentages.png)
 
@@ -74,7 +74,7 @@ As shown below, 35.39% of Vine reviews were 5 stars and 58.31% of non-Vine revie
       
 ## Summary
 
-As mentioned in the results, 35.39% of Vine reviews were 5 stars. Even though these reviews are written by members of the paid Amazon Vine program, it is not led to believe that there is a positivity bias for reviews of the beauty products in the Vine program. This is mainly due to the conservative percentage of the 5-star reviews found in this analysis and most likely because it’s an invitation-only program. Which means, a selective group of people are encouraged to submit their reviews for beauty products at Amazon.
+As mentioned in the results, 35.39% of Vine reviews were 5-stars. Even though these reviews are written by members of the paid Amazon Vine program, it is not led to believe that there is a positivity bias for reviews of the beauty products in the Vine program. This is mainly due to the conservative percentage of the 5-star reviews found in this analysis and most likely because it’s an invitation-only program. Which means, a selective group of people are encouraged to submit their reviews for beauty products at Amazon.
 
 With that stated, an additional analysis using the data from the *verified purchase* column could be used to further analyze the quality of these reviews. The data can be further filtered to consider reviews from the vine program, that have more than 20 total votes and that a purchase has been verified. It is found that an "Amazon Verified Purchase" review means Amazon has verified that the person writing the review purchased the product at Amazon and didn't receive the product at a deep discount. This can further confirm the beauty products reviews are unbiased. 
 
