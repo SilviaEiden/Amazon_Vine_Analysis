@@ -33,7 +33,7 @@ The software and web-based application used for this analysis are:
 
 ### Outcomes 
 
-An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals.
+An initial data exploration on Amazon's Beauty products dataset was done to filter product reviews that were written by members of the paid Amazon Vine program as well as from non-paid individuals. Furthermore, the criteria and data used from the dataset for this analysis is the review id, star ratings, helpful votes, total votes, vine membership, and verified purchase, which evaluates the authenticity of these beauty product reviews. Customer Reviews help customers to learn more about the product and decide whether it is the right product for them. The customer whether it is a vine member or not has a review id that can rate the product from least favorable review 1-star to the most favorable review 5-star. Moreover, these reviews are posted online that can help other customers with their purchasing decision-making.  
 
 Here are 3 questions with its respective answers worth highlighting from Amazon's Beauty product reviews:
 
